@@ -1,0 +1,14 @@
+# Archivos de configuracion y carpetas generadas por IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+target/ # Carpeta de Maven/Gradle
+build/  # Carpeta de Gradle
+
+# Archivos compilados de Java
+*.class
+
+# Registros y logs
+*.log
