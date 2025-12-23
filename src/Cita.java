@@ -15,7 +15,7 @@ public abstract class Cita {
     }
 
     public abstract void confirmar();
-    public abstract void cancelar(motivo String);
+    public abstract void cancelar(String motivo);
     public abstract void reprogramar(LocalDate nuevaFecha);
 
     public String getIdCita() {return idCita;}
