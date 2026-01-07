@@ -1,3 +1,5 @@
+package pack_logica;
+
 import java.time.LocalDate;
 
 public abstract class Diagnostico {

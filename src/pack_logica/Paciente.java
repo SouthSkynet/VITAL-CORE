@@ -1,11 +1,13 @@
+package pack_logica;
+
 import java.time.LocalDate;
 import java.util.Date;
 public class Paciente extends Persona{
     //Atributos de Paciente
     private String numeroHistoriaClinica, tipoSangre, alergia;
-    private final LocalDate fechaRegistro;
+    private final Date fechaRegistro;
     //Constructor de Paciente
-    public Paciente(String id,String nombre, String apellido, LocalDate fechaNacimiento, String numeroHistoriaClinica, String tipoSangre, String alergia, LocalDate fechaRegistro){
+    public Paciente(String id,String nombre, String apellido, LocalDate fechaNacimiento, String numeroHistoriaClinica, String tipoSangre, String alergia, Date fechaRegistro){
         super(id,nombre,apellido,fechaNacimiento);
         this.numeroHistoriaClinica = numeroHistoriaClinica;
         this.tipoSangre = tipoSangre;
@@ -34,7 +36,7 @@ public class Paciente extends Persona{
     public void setAlergia(String alergia) {
         this.alergia = alergia;
     }
-    public LocalDate getFechaRegistro() {
+    public Date getFechaRegistro() {
         return fechaRegistro;
     }
 }

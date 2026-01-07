@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package vital.core;
+package pack_gui;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -242,7 +242,9 @@ public class frmlogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new frmlogin().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            new frmlogin().setVisible(true);
+                });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

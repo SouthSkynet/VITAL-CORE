@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package vital.core;
+package pack_gui;
+import pack_gui.frmlogin;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
