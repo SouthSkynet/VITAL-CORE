@@ -36,51 +36,20 @@ public class frmregistro extends javax.swing.JFrame {
 
         pRegistro = new javax.swing.JPanel();
         lRegistro = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        cTipoUsuario = new javax.swing.JComboBox<>();
-        bRegistrarUsuario = new javax.swing.JButton();
-        pContrasena1 = new javax.swing.JPasswordField();
-        tApellido = new javax.swing.JTextField();
         tNombre = new javax.swing.JTextField();
+        tApellido = new javax.swing.JTextField();
+        cTipoUsuario = new javax.swing.JComboBox<>();
+        pContrasena1 = new javax.swing.JPasswordField();
+        bRegistrarUsuario = new javax.swing.JButton();
         iRegistro = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pRegistro.setBackground(new java.awt.Color(153, 102, 255));
-        pRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pRegistro.setBackground(new java.awt.Color(204, 255, 204));
 
         lRegistro.setFont(new java.awt.Font("Lucida Sans", 0, 24)); // NOI18N
         lRegistro.setText("REGISTRO");
-        pRegistro.add(lRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
-
-        jButton1.setText("Volver");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        pRegistro.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
-
-        cTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Paciente", "Doctor", "Farmaceutico" }));
-        cTipoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Usuario"));
-        cTipoUsuario.addActionListener(this::cTipoUsuarioActionPerformed);
-
-        bRegistrarUsuario.setBackground(new java.awt.Color(204, 204, 255));
-        bRegistrarUsuario.setText("REGISTRAR USUARIO");
-        bRegistrarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bRegistrarUsuarioMouseClicked(evt);
-            }
-        });
-        bRegistrarUsuario.addActionListener(this::bRegistrarUsuarioActionPerformed);
-
-        pContrasena1.setText("jPasswordField1");
-        pContrasena1.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
-
-        tApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellido"));
 
         tNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
         tNombre.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -90,43 +59,94 @@ public class frmregistro extends javax.swing.JFrame {
         });
         tNombre.addActionListener(this::tNombreActionPerformed);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bRegistrarUsuario)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+        tApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellido"));
+
+        cTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Paciente", "Doctor", "Farmaceutico" }));
+        cTipoUsuario.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Usuario"));
+        cTipoUsuario.addActionListener(this::cTipoUsuarioActionPerformed);
+
+        pContrasena1.setText("jPasswordField1");
+        pContrasena1.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
+
+        bRegistrarUsuario.setText("REGISTRAR USUARIO");
+        bRegistrarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bRegistrarUsuarioMouseClicked(evt);
+            }
+        });
+        bRegistrarUsuario.addActionListener(this::bRegistrarUsuarioActionPerformed);
+
+        iRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/crear-cuenta.png"))); // NOI18N
+
+        jButton1.setText("Volver");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
+        javax.swing.GroupLayout pRegistroLayout = new javax.swing.GroupLayout(pRegistro);
+        pRegistro.setLayout(pRegistroLayout);
+        pRegistroLayout.setHorizontalGroup(
+            pRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pRegistroLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(pRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tApellido, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pRegistroLayout.createSequentialGroup()
+                            .addComponent(cTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(27, 27, 27)
+                            .addComponent(bRegistrarUsuario))
                         .addComponent(pContrasena1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pRegistroLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iRegistro)
+                    .addGroup(pRegistroLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lRegistro)))
+                .addGap(112, 112, 112))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+        pRegistroLayout.setVerticalGroup(
+            pRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pRegistroLayout.createSequentialGroup()
+                .addGroup(pRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pRegistroLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lRegistro))
+                    .addGroup(pRegistroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(iRegistro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(tNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(tApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(pContrasena1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bRegistrarUsuario)
-                .addGap(21, 21, 21))
+                .addGap(28, 28, 28)
+                .addGroup(pRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bRegistrarUsuario))
+                .addGap(30, 30, 30))
         );
 
-        pRegistro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 390, 280));
-
-        iRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo_hospital.png"))); // NOI18N
-        pRegistro.add(iRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 490, 350));
-
-        getContentPane().add(pRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 440));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -210,7 +230,6 @@ public class frmregistro extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cTipoUsuario;
     private javax.swing.JLabel iRegistro;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lRegistro;
     private javax.swing.JPasswordField pContrasena1;
     private javax.swing.JPanel pRegistro;
