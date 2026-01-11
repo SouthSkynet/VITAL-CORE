@@ -38,7 +38,6 @@ public class frmlogin extends javax.swing.JFrame {
     private void initComponents() {
 
         pFondoLogin = new javax.swing.JPanel();
-        lLogin = new javax.swing.JLabel();
         iLogin = new javax.swing.JLabel();
         lUsuario = new javax.swing.JLabel();
         lcontrasena = new javax.swing.JLabel();
@@ -46,22 +45,27 @@ public class frmlogin extends javax.swing.JFrame {
         bCrearCuenta = new javax.swing.JButton();
         tUsuario = new javax.swing.JTextField();
         pContrasena = new javax.swing.JPasswordField();
+        jPanel1 = new javax.swing.JPanel();
+        lLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login-Vital Core");
 
-        pFondoLogin.setBackground(new java.awt.Color(153, 153, 255));
-
-        lLogin.setFont(new java.awt.Font("Lucida Sans", 1, 24)); // NOI18N
-        lLogin.setText("LOGIN");
+        pFondoLogin.setBackground(java.awt.SystemColor.control);
 
         iLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
         iLogin.setText("jLabel2");
 
-        lUsuario.setText("USUARIO");
+        lUsuario.setText("Usuario");
 
-        lcontrasena.setText("CONTRASEÑA");
+        lcontrasena.setText("Contraseña");
 
-        bIniciarsesion.setText("INICIAR SESIÓN");
+        bIniciarsesion.setBackground(new java.awt.Color(153, 153, 255));
+        bIniciarsesion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bIniciarsesion.setForeground(new java.awt.Color(255, 255, 255));
+        bIniciarsesion.setText("Iniciar Sesión");
+        bIniciarsesion.setActionCommand("Iniciar Sesión");
+        bIniciarsesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bIniciarsesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bIniciarsesionMouseClicked(evt);
@@ -69,7 +73,11 @@ public class frmlogin extends javax.swing.JFrame {
         });
         bIniciarsesion.addActionListener(this::bIniciarsesionActionPerformed);
 
-        bCrearCuenta.setText("CREAR CUENTA");
+        bCrearCuenta.setBackground(new java.awt.Color(102, 255, 204));
+        bCrearCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bCrearCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        bCrearCuenta.setText("Crear Cuenta");
+        bCrearCuenta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bCrearCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bCrearCuentaMouseClicked(evt);
@@ -80,69 +88,89 @@ public class frmlogin extends javax.swing.JFrame {
 
         pContrasena.addActionListener(this::pContrasenaActionPerformed);
 
+        jPanel1.setBackground(new java.awt.Color(70, 130, 180));
+
+        lLogin.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lLogin.setText("Login");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lLogin)
+                .addGap(136, 136, 136))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addComponent(lLogin)
+                .addGap(17, 17, 17))
+        );
+
         javax.swing.GroupLayout pFondoLoginLayout = new javax.swing.GroupLayout(pFondoLogin);
         pFondoLogin.setLayout(pFondoLoginLayout);
         pFondoLoginLayout.setHorizontalGroup(
             pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pFondoLoginLayout.createSequentialGroup()
-                .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(27, 27, 27)
+                .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pFondoLoginLayout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addComponent(iLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pFondoLoginLayout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(lLogin))
-                    .addGroup(pFondoLoginLayout.createSequentialGroup()
-                        .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pFondoLoginLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(lcontrasena))
-                            .addGroup(pFondoLoginLayout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(lUsuario)))
+                        .addComponent(lcontrasena)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pFondoLoginLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(lUsuario)
                         .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(pContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFondoLoginLayout.createSequentialGroup()
-                                    .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(bCrearCuenta)
-                                        .addComponent(bIniciarsesion))
-                                    .addGap(63, 63, 63))))))
-                .addContainerGap(46, Short.MAX_VALUE))
+                            .addGroup(pFondoLoginLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(iLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFondoLoginLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(tUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(45, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFondoLoginLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bCrearCuenta)
+                    .addComponent(bIniciarsesion))
+                .addGap(116, 116, 116))
         );
         pFondoLoginLayout.setVerticalGroup(
             pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFondoLoginLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lLogin)
-                .addGap(9, 9, 9)
-                .addComponent(iLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(iLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lUsuario)
                     .addComponent(tUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(23, 23, 23)
                 .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lcontrasena)
-                    .addComponent(pContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                    .addComponent(pContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lcontrasena))
+                .addGap(18, 18, 18)
                 .addComponent(bIniciarsesion)
                 .addGap(18, 18, 18)
                 .addComponent(bCrearCuenta)
-                .addGap(31, 31, 31))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pFondoLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pFondoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pFondoLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pFondoLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -261,6 +289,7 @@ public class frmlogin extends javax.swing.JFrame {
     private javax.swing.JButton bCrearCuenta;
     private javax.swing.JButton bIniciarsesion;
     private javax.swing.JLabel iLogin;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lLogin;
     private javax.swing.JLabel lUsuario;
     private javax.swing.JLabel lcontrasena;
