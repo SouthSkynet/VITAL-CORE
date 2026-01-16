@@ -7,8 +7,11 @@ import pack_gui.frmlogin;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JOptionPane;
 /**
  *
@@ -18,11 +21,13 @@ public class frmregistro extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmregistro.class.getName());
     private HashMap<String, String> mapaUsuarios = new HashMap<>();
+    private static final String HIDEN_KEY = "2406200611012026"; //Nota: La contraseña si permite mayúsculas y es CaseSensitive
     /**
      * Creates new form frmregistro
      */
     public frmregistro() {
         initComponents();
+        cargarDesdeCSV();
     }
 
     /**
@@ -173,7 +178,43 @@ public class frmregistro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    public String encriptar(String datos) {
+        try {
+            SecretKeySpec secretKey = new SecretKeySpec(HIDEN_KEY.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            byte[] datosEncriptados = cipher.doFinal(datos.getBytes());
+            return Base64.getEncoder().encodeToString(datosEncriptados);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    private void cargarDesdeCSV() {
+        java.io.File archivo = new java.io.File("usuarios.csv");
+        if (!archivo.exists()) {
+            return;
+        }
 
+        try (java.io.BufferedReader br = new java.io.BufferedReader(new java.io.FileReader(archivo))) {
+            String line;
+            boolean firstLine = true;
+            while ((line = br.readLine()) != null) {
+                if (firstLine) {
+                    firstLine = false;
+                    continue;
+                }
+
+                String[] partes = line.split(",");
+                if (partes.length == 2) {
+                    mapaUsuarios.put(partes[0], partes[1]);
+                }
+            }
+        } catch (java.io.IOException e) {
+            System.out.println("Error al cargar datos: " + e.getMessage());
+        }
+    }
+    
     private void guardarEnCSV(){
         try (java.io.FileWriter fw = new java.io.FileWriter("usuarios.csv");
             java.io.PrintWriter pw = new java.io.PrintWriter(fw)) {
@@ -207,19 +248,34 @@ public class frmregistro extends javax.swing.JFrame {
         String nombre = tNombre.getText().trim();
         String apellido = tApellido.getText().trim();
         String tipo = cTipoUsuario.getSelectedItem().toString();
-        String password = pContrasena1.getPassword().toString(); 
-
-        if (nombre.isEmpty() || apellido.isEmpty() || password.isEmpty() || tipo.equals("Seleccionar")) {
+        String password = new String (pContrasena1.getPassword());  //Aquí se encontraba el error al intentar transformar a String un arreglo de caracteres dierctamente
+        //Se propone un requerimiento de verificación básico para asegurarse que las personas con credenciales de médico sean las correctas
+        String claveFarm = "f4rM4c3ut1c0.5512";
+        String claveMed = "m3d1C04325";
+if (nombre.isEmpty() || apellido.isEmpty() || password.isEmpty() || tipo.equals("Seleccionar")) {
             javax.swing.JOptionPane.showMessageDialog(this, "Debe completar todos los campos.");
             return;
         }
+        if (tipo.equals("Doctor")){
+            String userCodeMed= JOptionPane.showInputDialog(this, "Ingrese el código de verificación correspondiente", "VERIFICADOR DE IDENTIDAD",JOptionPane.QUESTION_MESSAGE).toString();
+            if (!userCodeMed.equals(claveMed)){
+                javax.swing.JOptionPane.showMessageDialog(this, "La clave ingresada es incorrecta");
+                return;
+            }
+        } else if(tipo.equals("Farmaceutico")){
+            String userCodeFarm= JOptionPane.showInputDialog(this, "Ingrese el código de verificación correspondiente", "VERIFICADOR DE IDENTIDAD",JOptionPane.QUESTION_MESSAGE).toString();
+            if (!userCodeFarm.equals(claveFarm)){
+                javax.swing.JOptionPane.showMessageDialog(this, "La clave ingresada es incorrecta");
+                return;
+            }
+        }
 
         String usuarioID = (nombre.substring(0, 1) + "." + apellido + "_" + tipo + "@gestionmedica.gob.ec").toLowerCase();
+        String claveEncriptada = encriptar(password);
 
-        mapaUsuarios.put(usuarioID, password);
-
+        mapaUsuarios.put(usuarioID, claveEncriptada);
         guardarEnCSV();
-    
+        javax.swing.JOptionPane.showMessageDialog(this, "Estimado, el usuario generado para su cuenta es:\t" + usuarioID);
         tNombre.setText("");
         tApellido.setText("");
         pContrasena1.setText("");

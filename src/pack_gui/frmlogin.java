@@ -8,7 +8,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.HashMap;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +22,7 @@ public class frmlogin extends javax.swing.JFrame {
     
     private HashMap<String, String> credenciales = new HashMap<>();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmlogin.class.getName());
+    private static final String HIDEN_KEY = "2406200611012026";
 
     /**
      * Creates new form frmlogin
@@ -190,7 +194,8 @@ public class frmlogin extends javax.swing.JFrame {
 
     private void bIniciarsesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bIniciarsesionMouseClicked
         String user = tUsuario.getText().trim().toLowerCase();
-    String pass = new String(pContrasena.getPassword());
+        String pass = encriptar(new String(pContrasena.getPassword()));
+        
 
     if (credenciales.containsKey(user) && credenciales.get(user).equals(pass)) {
         
@@ -242,6 +247,17 @@ public class frmlogin extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public String encriptar(String datos) {
+        try {
+            SecretKeySpec secretKey = new SecretKeySpec(HIDEN_KEY.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            byte[] datosEncriptados = cipher.doFinal(datos.getBytes());
+            return Base64.getEncoder().encodeToString(datosEncriptados);
+        } catch (Exception e) {
+            return null;
+        }
+    }
     
     private void cargarDatosCSV() {
         File archivo = new File("usuarios.csv");
