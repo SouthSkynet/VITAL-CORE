@@ -47,31 +47,31 @@ public class frmAtenderCita extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        pEncabezadoACM = new javax.swing.JPanel();
+        lAtencionConsultaM = new javax.swing.JLabel();
         lIdCita = new javax.swing.JLabel();
         lPaciente = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        pPrincipalACM = new javax.swing.JPanel();
+        jGravedad = new javax.swing.JLabel();
         cmbGravedad = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jDiagnostico = new javax.swing.JLabel();
+        scrpDiagnostico = new javax.swing.JScrollPane();
         txtDiagnostico = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        lTratamiento = new javax.swing.JLabel();
+        scrpTratamiento = new javax.swing.JScrollPane();
         txtTratamiento = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
+        lDuracion = new javax.swing.JLabel();
         spnDuracion = new javax.swing.JSpinner();
         jLabel7 = new javax.swing.JLabel();
         chkReceta = new javax.swing.JCheckBox();
-        jLabel8 = new javax.swing.JLabel();
+        lMedicamento = new javax.swing.JLabel();
         txtMedicamento = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        lDosis = new javax.swing.JLabel();
         txtDosis = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        lIndicaciones = new javax.swing.JLabel();
         txtIndicaciones = new javax.swing.JTextField();
         btnAgregarMedicina = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        scrpMedicamentos = new javax.swing.JScrollPane();
         tablaMedicinas = new javax.swing.JTable();
         btnEliminarMedicina = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -83,112 +83,112 @@ public class frmAtenderCita extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(760, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(70, 130, 180));
-        jPanel1.setMinimumSize(new java.awt.Dimension(760, 120));
-        jPanel1.setPreferredSize(new java.awt.Dimension(760, 120));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pEncabezadoACM.setBackground(new java.awt.Color(70, 130, 180));
+        pEncabezadoACM.setMinimumSize(new java.awt.Dimension(760, 120));
+        pEncabezadoACM.setPreferredSize(new java.awt.Dimension(760, 120));
+        pEncabezadoACM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ATENCIÓN DE CONSULTA MÉDICA");
-        jLabel1.setPreferredSize(new java.awt.Dimension(500, 27));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, -1));
+        lAtencionConsultaM.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lAtencionConsultaM.setForeground(new java.awt.Color(255, 255, 255));
+        lAtencionConsultaM.setText("ATENCIÓN DE CONSULTA MÉDICA");
+        lAtencionConsultaM.setPreferredSize(new java.awt.Dimension(500, 27));
+        pEncabezadoACM.add(lAtencionConsultaM, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, -1));
 
         lIdCita.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lIdCita.setForeground(new java.awt.Color(255, 255, 255));
         lIdCita.setText("ID Cita: ");
         lIdCita.setPreferredSize(new java.awt.Dimension(300, 25));
-        jPanel1.add(lIdCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        pEncabezadoACM.add(lIdCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         lPaciente.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lPaciente.setForeground(new java.awt.Color(255, 255, 255));
         lPaciente.setText("Paciente: ");
         lPaciente.setPreferredSize(new java.awt.Dimension(500, 22));
-        jPanel1.add(lPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        pEncabezadoACM.add(lPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(pEncabezadoACM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(740, 600));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pPrincipalACM.setBackground(new java.awt.Color(255, 255, 255));
+        pPrincipalACM.setPreferredSize(new java.awt.Dimension(740, 600));
+        pPrincipalACM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel3.setText("Gravedad: ");
-        jLabel3.setPreferredSize(new java.awt.Dimension(100, 25));
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, -1));
+        jGravedad.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jGravedad.setText("Gravedad: ");
+        jGravedad.setPreferredSize(new java.awt.Dimension(100, 25));
+        pPrincipalACM.add(jGravedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, -1));
 
         cmbGravedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Leve", "Moderada", "Grave", "Crítica" }));
         cmbGravedad.setPreferredSize(new java.awt.Dimension(150, 25));
-        jPanel2.add(cmbGravedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 15, 160, -1));
+        pPrincipalACM.add(cmbGravedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 15, 160, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel4.setText("Diagnóstico: ");
-        jLabel4.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        jDiagnostico.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jDiagnostico.setText("Diagnóstico: ");
+        jDiagnostico.setPreferredSize(new java.awt.Dimension(120, 25));
+        pPrincipalACM.add(jDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(700, 70));
+        scrpDiagnostico.setPreferredSize(new java.awt.Dimension(700, 70));
 
         txtDiagnostico.setColumns(20);
         txtDiagnostico.setRows(3);
-        jScrollPane2.setViewportView(txtDiagnostico);
+        scrpDiagnostico.setViewportView(txtDiagnostico);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 75, -1, -1));
+        pPrincipalACM.add(scrpDiagnostico, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 75, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel5.setText("Tratamiento: ");
-        jLabel5.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 155, -1, -1));
+        lTratamiento.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        lTratamiento.setText("Tratamiento: ");
+        lTratamiento.setPreferredSize(new java.awt.Dimension(120, 25));
+        pPrincipalACM.add(lTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 155, -1, -1));
 
-        jScrollPane3.setPreferredSize(new java.awt.Dimension(700, 70));
+        scrpTratamiento.setPreferredSize(new java.awt.Dimension(700, 70));
 
         txtTratamiento.setColumns(20);
         txtTratamiento.setRows(3);
-        jScrollPane3.setViewportView(txtTratamiento);
+        scrpTratamiento.setViewportView(txtTratamiento);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        pPrincipalACM.add(scrpTratamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel6.setText("Duración (días): ");
-        jLabel6.setPreferredSize(new java.awt.Dimension(120, 25));
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        lDuracion.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        lDuracion.setText("Duración (días): ");
+        lDuracion.setPreferredSize(new java.awt.Dimension(120, 25));
+        pPrincipalACM.add(lDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         spnDuracion.setModel(new javax.swing.SpinnerNumberModel(7, 1, 365, 1));
         spnDuracion.setPreferredSize(new java.awt.Dimension(80, 25));
-        jPanel2.add(spnDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 80, -1));
+        pPrincipalACM.add(spnDuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 80, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("PRESCRIPCIÓN DE MEDICAMENTOS: ");
         jLabel7.setPreferredSize(new java.awt.Dimension(500, 25));
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 270, -1));
+        pPrincipalACM.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 270, -1));
 
         chkReceta.setText("Preescribir Medicamentos");
         chkReceta.setPreferredSize(new java.awt.Dimension(200, 25));
         chkReceta.addActionListener(this::chkRecetaActionPerformed);
-        jPanel2.add(chkReceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+        pPrincipalACM.add(chkReceta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
-        jLabel8.setText("Medicamento: ");
-        jLabel8.setPreferredSize(new java.awt.Dimension(100, 25));
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 365, -1, -1));
+        lMedicamento.setText("Medicamento: ");
+        lMedicamento.setPreferredSize(new java.awt.Dimension(100, 25));
+        pPrincipalACM.add(lMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 365, -1, -1));
 
         txtMedicamento.setEnabled(false);
         txtMedicamento.setPreferredSize(new java.awt.Dimension(200, 25));
-        jPanel2.add(txtMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 365, -1, -1));
+        pPrincipalACM.add(txtMedicamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 365, -1, -1));
 
-        jLabel9.setText("Dosis: ");
-        jLabel9.setPreferredSize(new java.awt.Dimension(50, 25));
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 365, -1, -1));
+        lDosis.setText("Dosis: ");
+        lDosis.setPreferredSize(new java.awt.Dimension(50, 25));
+        pPrincipalACM.add(lDosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 365, -1, -1));
 
         txtDosis.setEnabled(false);
         txtDosis.setPreferredSize(new java.awt.Dimension(150, 25));
-        jPanel2.add(txtDosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 365, -1, -1));
+        pPrincipalACM.add(txtDosis, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 365, -1, -1));
 
-        jLabel10.setText("Indicaciones: ");
-        jLabel10.setPreferredSize(new java.awt.Dimension(100, 25));
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
+        lIndicaciones.setText("Indicaciones: ");
+        lIndicaciones.setPreferredSize(new java.awt.Dimension(100, 25));
+        pPrincipalACM.add(lIndicaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, -1, -1));
 
         txtIndicaciones.setEnabled(false);
         txtIndicaciones.setPreferredSize(new java.awt.Dimension(400, 25));
-        jPanel2.add(txtIndicaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, -1));
+        pPrincipalACM.add(txtIndicaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, -1));
 
         btnAgregarMedicina.setBackground(new java.awt.Color(60, 179, 113));
         btnAgregarMedicina.setForeground(new java.awt.Color(255, 255, 255));
@@ -197,9 +197,9 @@ public class frmAtenderCita extends javax.swing.JFrame {
         btnAgregarMedicina.setFocusPainted(false);
         btnAgregarMedicina.setPreferredSize(new java.awt.Dimension(90, 23));
         btnAgregarMedicina.addActionListener(this::btnAgregarMedicinaActionPerformed);
-        jPanel2.add(btnAgregarMedicina, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
+        pPrincipalACM.add(btnAgregarMedicina, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 400, -1, -1));
 
-        jScrollPane4.setPreferredSize(new java.awt.Dimension(700, 120));
+        scrpMedicamentos.setPreferredSize(new java.awt.Dimension(700, 120));
 
         tablaMedicinas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -224,9 +224,9 @@ public class frmAtenderCita extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(tablaMedicinas);
+        scrpMedicamentos.setViewportView(tablaMedicinas);
 
-        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 435, -1, -1));
+        pPrincipalACM.add(scrpMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 435, -1, -1));
 
         btnEliminarMedicina.setBackground(new java.awt.Color(220, 20, 60));
         btnEliminarMedicina.setForeground(new java.awt.Color(255, 255, 255));
@@ -235,9 +235,9 @@ public class frmAtenderCita extends javax.swing.JFrame {
         btnEliminarMedicina.setFocusPainted(false);
         btnEliminarMedicina.setPreferredSize(new java.awt.Dimension(90, 23));
         btnEliminarMedicina.addActionListener(this::btnEliminarMedicinaActionPerformed);
-        jPanel2.add(btnEliminarMedicina, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
+        pPrincipalACM.add(btnEliminarMedicina, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        getContentPane().add(pPrincipalACM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         btnCancelar.setBackground(new java.awt.Color(220, 20, 60));
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -425,22 +425,22 @@ public class frmAtenderCita extends javax.swing.JFrame {
     private javax.swing.JButton btnNoSePresento;
     private javax.swing.JCheckBox chkReceta;
     private javax.swing.JComboBox<String> cmbGravedad;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jDiagnostico;
+    private javax.swing.JLabel jGravedad;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lAtencionConsultaM;
+    private javax.swing.JLabel lDosis;
+    private javax.swing.JLabel lDuracion;
     private javax.swing.JLabel lIdCita;
+    private javax.swing.JLabel lIndicaciones;
+    private javax.swing.JLabel lMedicamento;
     private javax.swing.JLabel lPaciente;
+    private javax.swing.JLabel lTratamiento;
+    private javax.swing.JPanel pEncabezadoACM;
+    private javax.swing.JPanel pPrincipalACM;
+    private javax.swing.JScrollPane scrpDiagnostico;
+    private javax.swing.JScrollPane scrpMedicamentos;
+    private javax.swing.JScrollPane scrpTratamiento;
     private javax.swing.JSpinner spnDuracion;
     private javax.swing.JTable tablaMedicinas;
     private javax.swing.JTextArea txtDiagnostico;

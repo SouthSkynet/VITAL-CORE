@@ -41,12 +41,12 @@ public class frmPaciente extends javax.swing.JFrame {
     
         initComponents();
         cargarDatosEjemplo();
-        lBienvenida.setText("Bienvenido/a, " + nombrePaciente);
+        lBienvenidaP.setText("Bienvenido/a, " + nombrePaciente);
 }
 
     private void cargarMedicinasDisponibles() {
-        jComboBox1.removeAllItems();
-        jComboBox1.addItem("Seleccionar Medicamento...");
+        cbMedicamento.removeAllItems();
+        cbMedicamento.addItem("Seleccionar Medicamento...");
 
         File archivo = new File("inventario.csv");
         if (!archivo.exists()) return;
@@ -62,7 +62,7 @@ public class frmPaciente extends javax.swing.JFrame {
 
                     // REQUERIMIENTO: Solo mostrar si el stock es mayor a 0
                     if (stock > 0) {
-                        jComboBox1.addItem(nombre);
+                        cbMedicamento.addItem(nombre);
                     }
                 }
             }
@@ -73,14 +73,14 @@ public class frmPaciente extends javax.swing.JFrame {
 
     // Desconteo en el archivo de inventario
     private void procesarPedido() {
-        String medicinaSeleccionada = (String) jComboBox1.getSelectedItem();
+        String medicinaSeleccionada = (String) cbMedicamento.getSelectedItem();
         
         if (medicinaSeleccionada == null || medicinaSeleccionada.equals("Seleccionar Medicamento...")) {
             JOptionPane.showMessageDialog(this, "Por favor, seleccione un medicamento.");
             return;
         }
 
-        String cantStr = jTextField1.getText().trim();
+        String cantStr = txtCantidad.getText().trim();
         if (cantStr.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Ingrese una cantidad.");
             return;
@@ -125,7 +125,7 @@ public class frmPaciente extends javax.swing.JFrame {
                     }
                 }
                 JOptionPane.showMessageDialog(this, "Pedido solicitado con éxito.");
-                jTextField1.setText("");
+                txtCantidad.setText("");
                 // Eliminación dentro del combo box si su valor llega a 0
                 cargarMedicinasDisponibles();
             }
@@ -145,10 +145,10 @@ public class frmPaciente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lTitulo = new javax.swing.JLabel();
-        lBienvenida = new javax.swing.JLabel();
-        JTabbedPane1 = new javax.swing.JTabbedPane();
+        pEncabezadoP = new javax.swing.JPanel();
+        lTituloP = new javax.swing.JLabel();
+        lBienvenidaP = new javax.swing.JLabel();
+        tabpPaciente = new javax.swing.JTabbedPane();
         panelAgendarCita = new javax.swing.JPanel();
         lblFecha = new javax.swing.JLabel();
         lblDia = new javax.swing.JLabel();
@@ -162,45 +162,45 @@ public class frmPaciente extends javax.swing.JFrame {
         lbMedico = new javax.swing.JLabel();
         cmbMedico = new javax.swing.JComboBox<>();
         lblMotivo1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        scrpMotivoC = new javax.swing.JScrollPane();
         txtMotivo = new javax.swing.JTextArea();
         btnLimpiarFormulario = new javax.swing.JButton();
         btnAgendarCita = new javax.swing.JButton();
         panelMisCitas = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scrpCitas = new javax.swing.JScrollPane();
         tablaMisCitas = new javax.swing.JTable();
         btnRefrescar = new javax.swing.JButton();
         btnReprogramar = new javax.swing.JButton();
         btnCancelarCita = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        panelMedicamentos = new javax.swing.JPanel();
+        lMedicinaS = new javax.swing.JLabel();
+        cbMedicamento = new javax.swing.JComboBox<>();
+        lCantidad = new javax.swing.JLabel();
+        txtCantidad = new javax.swing.JTextField();
+        bSolicitarM = new javax.swing.JButton();
+        bCerrarSesionP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(70, 130, 180));
-        jPanel1.setPreferredSize(new java.awt.Dimension(950, 90));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pEncabezadoP.setBackground(new java.awt.Color(70, 130, 180));
+        pEncabezadoP.setPreferredSize(new java.awt.Dimension(950, 90));
+        pEncabezadoP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lTitulo.setText("Portal del Paciente");
-        jPanel1.add(lTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, -1));
+        lTituloP.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lTituloP.setForeground(new java.awt.Color(255, 255, 255));
+        lTituloP.setText("Portal del Paciente");
+        pEncabezadoP.add(lTituloP, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, -1));
 
-        lBienvenida.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lBienvenida.setForeground(new java.awt.Color(255, 255, 255));
-        lBienvenida.setText("Bienvenido/a, Paciente");
-        lBienvenida.setPreferredSize(new java.awt.Dimension(250, 30));
-        jPanel1.add(lBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
+        lBienvenidaP.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lBienvenidaP.setForeground(new java.awt.Color(255, 255, 255));
+        lBienvenidaP.setText("Bienvenido/a, Paciente");
+        lBienvenidaP.setPreferredSize(new java.awt.Dimension(250, 30));
+        pEncabezadoP.add(lBienvenidaP, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(pEncabezadoP, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        JTabbedPane1.setPreferredSize(new java.awt.Dimension(930, 500));
+        tabpPaciente.setPreferredSize(new java.awt.Dimension(930, 500));
 
         panelAgendarCita.setBackground(new java.awt.Color(255, 255, 255));
         panelAgendarCita.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -252,15 +252,15 @@ public class frmPaciente extends javax.swing.JFrame {
         lblMotivo1.setText("Motivo de la consulta:");
         panelAgendarCita.add(lblMotivo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 225, -1, -1));
 
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 80));
+        scrpMotivoC.setPreferredSize(new java.awt.Dimension(600, 80));
 
         txtMotivo.setColumns(20);
         txtMotivo.setLineWrap(true);
         txtMotivo.setRows(4);
         txtMotivo.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(txtMotivo);
+        scrpMotivoC.setViewportView(txtMotivo);
 
-        panelAgendarCita.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 245, -1, -1));
+        panelAgendarCita.add(scrpMotivoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 245, -1, -1));
 
         btnLimpiarFormulario.setBackground(new java.awt.Color(100, 149, 237));
         btnLimpiarFormulario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -280,12 +280,12 @@ public class frmPaciente extends javax.swing.JFrame {
         btnAgendarCita.addActionListener(this::btnAgendarCitaActionPerformed);
         panelAgendarCita.add(btnAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 400, -1, -1));
 
-        JTabbedPane1.addTab("Agendar Cita", panelAgendarCita);
+        tabpPaciente.addTab("Agendar Cita", panelAgendarCita);
 
         panelMisCitas.setBackground(new java.awt.Color(255, 255, 255));
         panelMisCitas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(900, 400));
+        scrpCitas.setPreferredSize(new java.awt.Dimension(900, 400));
 
         tablaMisCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -311,9 +311,9 @@ public class frmPaciente extends javax.swing.JFrame {
             }
         });
         tablaMisCitas.setRowHeight(25);
-        jScrollPane2.setViewportView(tablaMisCitas);
+        scrpCitas.setViewportView(tablaMisCitas);
 
-        panelMisCitas.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        panelMisCitas.add(scrpCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         btnRefrescar.setBackground(new java.awt.Color(100, 149, 237));
         btnRefrescar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -342,36 +342,35 @@ public class frmPaciente extends javax.swing.JFrame {
         btnCancelarCita.addActionListener(this::btnCancelarCitaActionPerformed);
         panelMisCitas.add(btnCancelarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, -1, -1));
 
-        JTabbedPane1.addTab("Mis citas", panelMisCitas);
+        tabpPaciente.addTab("Mis citas", panelMisCitas);
 
-        jLabel5.setText("Medicina a solicitar");
-        jPanel2.add(jLabel5);
+        lMedicinaS.setText("Medicina a solicitar");
+        panelMedicamentos.add(lMedicinaS);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1);
+        cbMedicamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoja un medicamento" }));
+        panelMedicamentos.add(cbMedicamento);
 
-        jLabel6.setText("Cantidad");
-        jPanel2.add(jLabel6);
+        lCantidad.setText("Cantidad");
+        panelMedicamentos.add(lCantidad);
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-        jPanel2.add(jTextField1);
+        txtCantidad.addActionListener(this::txtCantidadActionPerformed);
+        panelMedicamentos.add(txtCantidad);
 
-        jButton2.setText("Solicitar");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
-        jPanel2.add(jButton2);
+        bSolicitarM.setText("Solicitar");
+        bSolicitarM.addActionListener(this::bSolicitarMActionPerformed);
+        panelMedicamentos.add(bSolicitarM);
 
-        JTabbedPane1.addTab("Solicitar Medicamento", jPanel2);
+        tabpPaciente.addTab("Solicitar Medicamento", panelMedicamentos);
 
-        getContentPane().add(JTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        getContentPane().add(tabpPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(220, 20, 60));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cerrar Sesión");
-        jButton1.setPreferredSize(new java.awt.Dimension(130, 27));
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 610, -1, -1));
+        bCerrarSesionP.setBackground(new java.awt.Color(220, 20, 60));
+        bCerrarSesionP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bCerrarSesionP.setForeground(new java.awt.Color(255, 255, 255));
+        bCerrarSesionP.setText("Cerrar Sesión");
+        bCerrarSesionP.setPreferredSize(new java.awt.Dimension(130, 27));
+        bCerrarSesionP.addActionListener(this::bCerrarSesionPActionPerformed);
+        getContentPane().add(bCerrarSesionP, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 610, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -451,7 +450,7 @@ public class frmPaciente extends javax.swing.JFrame {
         "Cita Agendada", JOptionPane.INFORMATION_MESSAGE);
     
     limpiarFormulario();
-    JTabbedPane1.setSelectedIndex(1);    
+    tabpPaciente.setSelectedIndex(1);    
     }//GEN-LAST:event_btnAgendarCitaActionPerformed
 
     private void btnLimpiarFormularioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarFormularioActionPerformed
@@ -508,7 +507,7 @@ public class frmPaciente extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Tabla actualizada");
     }//GEN-LAST:event_btnRefrescarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bCerrarSesionPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarSesionPActionPerformed
         // TODO add your handling code here:
         int respuesta = JOptionPane.showConfirmDialog(this, 
         "¿Está seguro que desea cerrar sesión?", 
@@ -520,16 +519,16 @@ public class frmPaciente extends javax.swing.JFrame {
         login.setLocationRelativeTo(null);
         this.dispose();
     }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_bCerrarSesionPActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void bSolicitarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSolicitarMActionPerformed
         // TODO add your handling code here:
         procesarPedido();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_bSolicitarMActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCantidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtCantidadActionPerformed
     
     private void limpiarFormulario() {
     txtDia.setText("");
@@ -577,26 +576,20 @@ public class frmPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane JTabbedPane1;
+    private javax.swing.JButton bCerrarSesionP;
+    private javax.swing.JButton bSolicitarM;
     private javax.swing.JButton btnAgendarCita;
     private javax.swing.JButton btnCancelarCita;
     private javax.swing.JButton btnLimpiarFormulario;
     private javax.swing.JButton btnRefrescar;
     private javax.swing.JButton btnReprogramar;
+    private javax.swing.JComboBox<String> cbMedicamento;
     private javax.swing.JComboBox<String> cmbHorario;
     private javax.swing.JComboBox<String> cmbMedico;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel lBienvenida;
-    private javax.swing.JLabel lTitulo;
+    private javax.swing.JLabel lBienvenidaP;
+    private javax.swing.JLabel lCantidad;
+    private javax.swing.JLabel lMedicinaS;
+    private javax.swing.JLabel lTituloP;
     private javax.swing.JLabel lbMedico;
     private javax.swing.JLabel lblAnio;
     private javax.swing.JLabel lblDia;
@@ -604,10 +597,16 @@ public class frmPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel lblHora;
     private javax.swing.JLabel lblMes;
     private javax.swing.JLabel lblMotivo1;
+    private javax.swing.JPanel pEncabezadoP;
     private javax.swing.JPanel panelAgendarCita;
+    private javax.swing.JPanel panelMedicamentos;
     private javax.swing.JPanel panelMisCitas;
+    private javax.swing.JScrollPane scrpCitas;
+    private javax.swing.JScrollPane scrpMotivoC;
     private javax.swing.JTable tablaMisCitas;
+    private javax.swing.JTabbedPane tabpPaciente;
     private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtDia;
     private javax.swing.JTextField txtMes;
     private javax.swing.JTextArea txtMotivo;

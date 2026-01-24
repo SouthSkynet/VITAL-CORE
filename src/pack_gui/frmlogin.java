@@ -49,7 +49,7 @@ public class frmlogin extends javax.swing.JFrame {
         bCrearCuenta = new javax.swing.JButton();
         tUsuario = new javax.swing.JTextField();
         pContrasena = new javax.swing.JPasswordField();
-        jPanel1 = new javax.swing.JPanel();
+        pEncabezadoLogin = new javax.swing.JPanel();
         lLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,7 +68,6 @@ public class frmlogin extends javax.swing.JFrame {
         bIniciarsesion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         bIniciarsesion.setForeground(new java.awt.Color(255, 255, 255));
         bIniciarsesion.setText("Iniciar Sesión");
-        bIniciarsesion.setActionCommand("Iniciar Sesión");
         bIniciarsesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bIniciarsesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -92,24 +91,24 @@ public class frmlogin extends javax.swing.JFrame {
 
         pContrasena.addActionListener(this::pContrasenaActionPerformed);
 
-        jPanel1.setBackground(new java.awt.Color(70, 130, 180));
+        pEncabezadoLogin.setBackground(new java.awt.Color(70, 130, 180));
 
         lLogin.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lLogin.setForeground(new java.awt.Color(255, 255, 255));
         lLogin.setText("Login");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pEncabezadoLoginLayout = new javax.swing.GroupLayout(pEncabezadoLogin);
+        pEncabezadoLogin.setLayout(pEncabezadoLoginLayout);
+        pEncabezadoLoginLayout.setHorizontalGroup(
+            pEncabezadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEncabezadoLoginLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lLogin)
                 .addGap(136, 136, 136))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        pEncabezadoLoginLayout.setVerticalGroup(
+            pEncabezadoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pEncabezadoLoginLayout.createSequentialGroup()
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(lLogin)
                 .addGap(17, 17, 17))
@@ -119,7 +118,7 @@ public class frmlogin extends javax.swing.JFrame {
         pFondoLogin.setLayout(pFondoLoginLayout);
         pFondoLoginLayout.setHorizontalGroup(
             pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pEncabezadoLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pFondoLoginLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -148,7 +147,7 @@ public class frmlogin extends javax.swing.JFrame {
         pFondoLoginLayout.setVerticalGroup(
             pFondoLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFondoLoginLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pEncabezadoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(iLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
@@ -311,11 +310,11 @@ public class frmlogin extends javax.swing.JFrame {
     private javax.swing.JButton bCrearCuenta;
     private javax.swing.JButton bIniciarsesion;
     private javax.swing.JLabel iLogin;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lLogin;
     private javax.swing.JLabel lUsuario;
     private javax.swing.JLabel lcontrasena;
     private javax.swing.JPasswordField pContrasena;
+    private javax.swing.JPanel pEncabezadoLogin;
     private javax.swing.JPanel pFondoLogin;
     private javax.swing.JTextField tUsuario;
     // End of variables declaration//GEN-END:variables

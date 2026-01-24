@@ -40,16 +40,16 @@ public class frmMedico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pEncabezadoM = new javax.swing.JPanel();
         lBienvenida = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
+        lSistemaGestionM = new javax.swing.JLabel();
+        tabpCitasMedicas = new javax.swing.JTabbedPane();
+        pCitasAgendadas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaCitasAgendadas = new javax.swing.JTable();
         btnRefrescar = new javax.swing.JButton();
         btnAtender = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        pCitasAtendidas = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaCitasAtendidas = new javax.swing.JTable();
         btnVerDetalles = new javax.swing.JButton();
@@ -60,28 +60,28 @@ public class frmMedico extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(950, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(70, 130, 180));
-        jPanel1.setPreferredSize(new java.awt.Dimension(950, 90));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pEncabezadoM.setBackground(new java.awt.Color(70, 130, 180));
+        pEncabezadoM.setPreferredSize(new java.awt.Dimension(950, 90));
+        pEncabezadoM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lBienvenida.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lBienvenida.setForeground(new java.awt.Color(255, 255, 255));
         lBienvenida.setText("Bienvenido Dr. Médico");
         lBienvenida.setPreferredSize(new java.awt.Dimension(250, 30));
-        jPanel1.add(lBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
+        pEncabezadoM.add(lBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Sistema de Gestión Médica");
-        jLabel1.setPreferredSize(new java.awt.Dimension(400, 40));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, -1));
+        lSistemaGestionM.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lSistemaGestionM.setForeground(new java.awt.Color(255, 255, 255));
+        lSistemaGestionM.setText("Sistema de Gestión Médica");
+        lSistemaGestionM.setPreferredSize(new java.awt.Dimension(400, 40));
+        pEncabezadoM.add(lSistemaGestionM, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 25, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(pEncabezadoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jTabbedPane1.setPreferredSize(new java.awt.Dimension(930, 470));
+        tabpCitasMedicas.setPreferredSize(new java.awt.Dimension(930, 470));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pCitasAgendadas.setBackground(new java.awt.Color(255, 255, 255));
+        pCitasAgendadas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(900, 360));
 
@@ -111,7 +111,7 @@ public class frmMedico extends javax.swing.JFrame {
         tablaCitasAgendadas.setRowHeight(25);
         jScrollPane1.setViewportView(tablaCitasAgendadas);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        pCitasAgendadas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         btnRefrescar.setBackground(new java.awt.Color(100, 149, 237));
         btnRefrescar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -120,7 +120,7 @@ public class frmMedico extends javax.swing.JFrame {
         btnRefrescar.setFocusPainted(false);
         btnRefrescar.setPreferredSize(new java.awt.Dimension(110, 35));
         btnRefrescar.addActionListener(this::btnRefrescarActionPerformed);
-        jPanel2.add(btnRefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, -1));
+        pCitasAgendadas.add(btnRefrescar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, -1));
 
         btnAtender.setBackground(new java.awt.Color(60, 179, 113));
         btnAtender.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -129,12 +129,12 @@ public class frmMedico extends javax.swing.JFrame {
         btnAtender.setFocusPainted(false);
         btnAtender.setPreferredSize(new java.awt.Dimension(110, 35));
         btnAtender.addActionListener(this::btnAtenderActionPerformed);
-        jPanel2.add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 120, -1));
+        pCitasAgendadas.add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 120, -1));
 
-        jTabbedPane1.addTab("CItas Agendadas", jPanel2);
+        tabpCitasMedicas.addTab("CItas Agendadas", pCitasAgendadas);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        pCitasAtendidas.setBackground(new java.awt.Color(255, 255, 255));
+        pCitasAtendidas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(900, 360));
 
@@ -164,7 +164,7 @@ public class frmMedico extends javax.swing.JFrame {
         tablaCitasAtendidas.setRowHeight(25);
         jScrollPane2.setViewportView(tablaCitasAtendidas);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        pCitasAtendidas.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         btnVerDetalles.setBackground(new java.awt.Color(100, 149, 237));
         btnVerDetalles.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -173,11 +173,11 @@ public class frmMedico extends javax.swing.JFrame {
         btnVerDetalles.setFocusPainted(false);
         btnVerDetalles.setPreferredSize(new java.awt.Dimension(100, 35));
         btnVerDetalles.addActionListener(this::btnVerDetallesActionPerformed);
-        jPanel3.add(btnVerDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 110, -1));
+        pCitasAtendidas.add(btnVerDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 110, -1));
 
-        jTabbedPane1.addTab("Citas Atendidas", jPanel3);
+        tabpCitasMedicas.addTab("Citas Atendidas", pCitasAtendidas);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        getContentPane().add(tabpCitasMedicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         btnCerrarSesion.setBackground(new java.awt.Color(220, 20, 60));
         btnCerrarSesion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -339,15 +339,15 @@ public class frmMedico extends javax.swing.JFrame {
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnRefrescar;
     private javax.swing.JButton btnVerDetalles;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lBienvenida;
+    private javax.swing.JLabel lSistemaGestionM;
+    private javax.swing.JPanel pCitasAgendadas;
+    private javax.swing.JPanel pCitasAtendidas;
+    private javax.swing.JPanel pEncabezadoM;
     private javax.swing.JTable tablaCitasAgendadas;
     private javax.swing.JTable tablaCitasAtendidas;
+    private javax.swing.JTabbedPane tabpCitasMedicas;
     // End of variables declaration//GEN-END:variables
 }
