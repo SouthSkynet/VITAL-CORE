@@ -223,9 +223,15 @@ public class frmlogin extends javax.swing.JFrame {
                 break;
             case "paciente":
                 JOptionPane.showMessageDialog(this, "Hola. Aquí puedes revisar tus citas médicas y recetas.");
+                frmPaciente paciente = new frmPaciente();
+                paciente.setVisible(true);
+                this.setVisible(false);
                 break;
             case "farmaceutico":
                 JOptionPane.showMessageDialog(this, "Acceso concedido. Inventario de farmacia disponible.");
+                frmFarmaceutico farm = new frmFarmaceutico();
+                farm.setVisible(true);
+                this.setVisible(false);
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "Bienvenido al sistema Vital-Core.");
