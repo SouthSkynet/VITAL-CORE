@@ -60,6 +60,7 @@ public class frmFarmaceutico extends javax.swing.JFrame {
         javax.swing.JOptionPane.showMessageDialog(this, "Error al leer inventario");
     }
 }
+    
     /**
      * Creates new form frmFarmaceutico
      */
@@ -221,8 +222,130 @@ public class frmFarmaceutico extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void actualizarTablaRecetas() {
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tablaR.getModel();
+        java.io.File archivo = new java.io.File("recetas.csv");
+
+        if (!archivo.exists()) return;
+
+        try (java.io.BufferedReader br = new java.io.BufferedReader(new java.io.FileReader(archivo))) {
+            java.util.List<Object[]> datosNuevos = new java.util.ArrayList<>();
+            String linea;
+
+            while ((linea = br.readLine()) != null) {
+                if (linea.trim().isEmpty()) continue;
+                String[] campos = linea.split(",");
+
+                // Verificamos que sea una receta pendiente (ID, Paciente, Medicina, Dosis, Estado)
+                if (campos.length >= 5 && campos[4].trim().equalsIgnoreCase("Pendiente")) {
+                    datosNuevos.add(new Object[]{campos[0], campos[1], campos[2], campos[3], campos[4]});
+                }
+            }
+
+            // Solo limpiamos y llenamos si logramos leer el archivo correctamente
+            modelo.setRowCount(0);
+            for (Object[] fila : datosNuevos) {
+                modelo.addRow(fila);
+            }
+        } catch (java.io.IOException e) {
+            System.err.println("Error al cargar recetas: " + e.getMessage());
+        }
+    }
+    
+    private void actualizarTablaInventario() {
+        javax.swing.table.DefaultTableModel modelo = (javax.swing.table.DefaultTableModel) tablaM.getModel();
+        java.io.File archivo = new java.io.File("inventario.csv");
+
+        if (!archivo.exists()) {
+            inicializarInventario(); // Crea el archivo base si no existe
+        }
+
+        try (java.io.BufferedReader br = new java.io.BufferedReader(new java.io.FileReader(archivo))) {
+            java.util.List<String[]> filasInv = new java.util.ArrayList<>();
+            String linea = br.readLine(); // Saltar encabezado: MEDICINA,STOCK
+
+            while ((linea = br.readLine()) != null) {
+                if (linea.trim().isEmpty()) continue;
+                String[] datos = linea.split(",");
+                if (datos.length == 2) {
+                    filasInv.add(datos);
+                }
+            }
+
+            // Actualización "atómica" para evitar que la tabla desaparezca
+            modelo.setRowCount(0);
+            for (String[] fila : filasInv) {
+                modelo.addRow(fila);
+            }
+        } catch (java.io.IOException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al leer inventario: " + e.getMessage());
+        }
+    }
+    
     private void bDespacharMedicinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDespacharMedicinaActionPerformed
-        // TODO add your handling code here:
+        String nombreMedicina = javax.swing.JOptionPane.showInputDialog(this, 
+            "Ingrese el nombre de la medicina:", "Despachar Medicina", 
+            javax.swing.JOptionPane.QUESTION_MESSAGE);
+
+        if (nombreMedicina == null || nombreMedicina.trim().isEmpty()) return;
+        nombreMedicina = nombreMedicina.trim();
+
+        String strCantidad = javax.swing.JOptionPane.showInputDialog(this, 
+                "Ingrese la cantidad a añadir al stock:", "Cantidad", 
+                javax.swing.JOptionPane.QUESTION_MESSAGE);
+
+        if (strCantidad == null || strCantidad.trim().isEmpty()) return;
+
+        int cantidadNueva;
+        try {
+            cantidadNueva = Integer.parseInt(strCantidad.trim());
+            if (cantidadNueva <= 0) throw new NumberFormatException();
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingrese una cantidad válida.");
+            return;
+        }
+
+        java.io.File archivo = new java.io.File("inventario.csv");
+        java.util.Map<String, Integer> inventario = new java.util.LinkedHashMap<>();
+        boolean medicinaEncontrada = false;
+
+        //Lectura del estado actual
+        try (java.io.BufferedReader br = new java.io.BufferedReader(new java.io.FileReader(archivo))) {
+            String linea = br.readLine(); // Encabezado
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                if (datos.length == 2) {
+                    String med = datos[0];
+                    int stock = Integer.parseInt(datos[1]);
+                    if (med.equalsIgnoreCase(nombreMedicina)) {
+                        stock += cantidadNueva;
+                        medicinaEncontrada = true;
+                    }
+                    inventario.put(med, stock);
+                }
+            }
+        } catch (java.io.IOException e) {}//Manejo de errores
+
+        if (!medicinaEncontrada) {
+            String nombreNormalizado = nombreMedicina.substring(0, 1).toUpperCase() + 
+                                      nombreMedicina.substring(1).toLowerCase();
+            inventario.put(nombreNormalizado, cantidadNueva);
+        }
+
+        // Escritura en el archivo y cierre
+        try (java.io.PrintWriter pw = new java.io.PrintWriter(new java.io.FileWriter(archivo))) {
+            pw.println("MEDICINA,STOCK");
+            for (java.util.Map.Entry<String, Integer> entry : inventario.entrySet()) {
+                pw.println(entry.getKey() + "," + entry.getValue());
+            }
+            // El archivo se cierra automáticamente al salir de este bloque 'try'
+        } catch (java.io.IOException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al guardar.");
+        }
+
+        //Actualización visual de la interfaz
+        actualizarTablaInventario(); 
+        javax.swing.JOptionPane.showMessageDialog(this, "Inventario actualizado correctamente.");
     }//GEN-LAST:event_bDespacharMedicinaActionPerformed
 
     /**
